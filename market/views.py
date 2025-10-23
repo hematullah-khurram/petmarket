@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
 
+@login_required
 def home(request):
     pets = Pet.objects.all()
     return render(request, 'market/home.html', {'pets': pets})
