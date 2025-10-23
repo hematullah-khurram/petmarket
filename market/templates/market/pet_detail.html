@@ -1,0 +1,20 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block title %}{{ pet.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ pet.name }}</h1>
+    <img src="{% if pet.image %}{{ pet.image.url }}{% else %}{% static 'market/placeholder_pet.jpg' %}{% endif %}" 
+         class="img-fluid mb-3" alt="{{ pet.name }}">
+    <p>Price: ${{ pet.price }}</p>
+    <p>Description: {{ pet.description }}</p>
+
+    {% if user == pet.owner %}
+        <a href="{% url 'pet_edit' pet.pk %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'pet_delete' pet.pk %}" class="btn btn-danger">Delete</a>
+    {% endif %}
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+</div>
+{% endblock %}

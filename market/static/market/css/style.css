@@ -1,0 +1,63 @@
+/* General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Pet Cards */
+.pet-card {
+    transition: transform 0.2s;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.pet-card:hover {
+    transform: scale(1.03);
+}
+
+/* Pet Image Fix */
+.pet-card img {
+    width: 100%;
+    height: 220px;               /* fixed consistent height */
+    object-fit: contain;         /* show full image, not cropped */
+    background-color: #f8f9fa;   /* light gray behind transparent images */
+    display: block;
+}
+
+/* Pet Info */
+.pet-card .card-body {
+    padding: 15px;
+}
+
+.pet-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.pet-info {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #007bff;
+}
+
+/* Logged out / messages cards */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}

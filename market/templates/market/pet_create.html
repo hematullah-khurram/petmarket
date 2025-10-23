@@ -1,0 +1,42 @@
+{% extends 'market/base.html' %}
+{% block title %}Add Pet{% endblock %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width:600px;">
+  <div class="card-body">
+    <h3 class="mb-3 text-primary">Add a New Pet</h3>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        {{ form.name|as_widget(attrs={'class':'form-control'}) }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Breed</label>
+        {{ form.breed|as_widget(attrs={'class':'form-control'}) }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Age</label>
+        {{ form.age|as_widget(attrs={'class':'form-control'}) }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Color</label>
+        {{ form.color|as_widget(attrs={'class':'form-control'}) }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+        {{ form.price|as_widget(attrs={'class':'form-control'}) }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        {{ form.description|as_widget(attrs={'class':'form-control','rows':'3'}) }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Photo</label>
+        {{ form.image|as_widget(attrs={'class':'form-control'}) }}
+      </div>
+      <button type="submit" class="btn btn-success w-100">Add Pet</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
