@@ -1,1 +1,14 @@
 
+{% extends "market/base.html" %}
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2>Are you sure you want to log out?</h2>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger mt-3">Yes, log me out</button>
+        <a href="{% url 'pet_list' %}" class="btn btn-secondary mt-3">Cancel</a>
+    </form>
+</div>
+{% endblock %}

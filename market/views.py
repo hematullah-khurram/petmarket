@@ -4,9 +4,9 @@ from .models import Pet
 from .forms import PetForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth import logout
 
 
-@login_required
 def home(request):
     pets = Pet.objects.all()
     return render(request, 'market/home.html', {'pets': pets})
@@ -63,3 +63,10 @@ def signup_view(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+    
+def logout_view(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect('login')  # or wherever you want to go after logout
+    return render(request, 'registration/logout.html')
