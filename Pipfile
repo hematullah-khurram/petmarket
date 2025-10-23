@@ -10,7 +10,7 @@ gunicorn = "*"
 dj-database-url = "*"
 django = "*"
 psycopg2-binary = "*"
-
+Pillow = "*"
 [dev-packages]
 
 [requires]
