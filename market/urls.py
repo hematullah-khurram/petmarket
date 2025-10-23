@@ -8,5 +8,5 @@ urlpatterns = [
     path('pet/<int:pk>/edit/', views.edit_pet, name='pet_edit'),  # Edit pet
     path('pet/<int:pk>/delete/', views.delete_pet, name='pet_delete'),  # Delete pet
     path('signup/', views.signup_view, name='signup'),
-    # path('', views.pet_list, name='pet_list'),
+    path('', views.pet_list, name='pet_list'),
 ]
