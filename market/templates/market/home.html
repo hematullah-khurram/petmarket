@@ -27,14 +27,14 @@
                     <a href="{% url 'pet_detail' pet.pk %}" class="btn btn-primary mb-2">View</a>
 
                     {% if user == pet.owner %}
-                        <div class="edit-section">
-                            <button class="btn btn-warning mb-2 edit-btn">Edit</button>
-                            <div class="edit-options d-none">
+                        <div class="edit-buttons">
+                            <a href="{% url 'pet_edit' pet.pk %}" class="btn btn-warning mb-2 edit-btn">Edit</a>
+                            <div class="edit-mode d-none">
                                 <form action="{% url 'pet_delete' pet.pk %}" method="post" style="display:inline;">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-danger mb-2">Delete</button>
                                 </form>
-                                <button class="btn btn-secondary mb-2 save-btn">Save</button>
+                                <a href="{% url 'pet_detail' pet.pk %}" class="btn btn-secondary mb-2">Save</a>
                             </div>
                         </div>
                     {% endif %}
@@ -48,20 +48,14 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.edit-btn').forEach(editBtn => {
-        editBtn.addEventListener('click', () => {
-            const parent = editBtn.closest('.edit-section');
-            editBtn.classList.add('d-none');
-            parent.querySelector('.edit-options').classList.remove('d-none');
-        });
-    });
-
-    document.querySelectorAll('.save-btn').forEach(saveBtn => {
-        saveBtn.addEventListener('click', () => {
-            const parent = saveBtn.closest('.edit-section');
-            parent.querySelector('.edit-btn').classList.remove('d-none');
-            parent.querySelector('.edit-options').classList.add('d-none');
+document.addEventListener('DOMContentLoaded', function() {
+    const editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = btn.closest('.edit-buttons');
+            btn.classList.add('d-none');
+            parent.querySelector('.edit-mode').classList.remove('d-none');
         });
     });
 });
