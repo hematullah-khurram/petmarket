@@ -5,6 +5,7 @@ from .forms import PetForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 
 def home(request):

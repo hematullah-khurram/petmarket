@@ -28,10 +28,12 @@
             <span class="nav-link">Hi, {{ user.username }}</span>
           </li>
           <li class="nav-item">
-            <!-- Secure POST logout form -->
+            <!-- ✅ Fixed logout form (POST required by Django) -->
             <form action="{% url 'logout' %}" method="post" style="display:inline;">
               {% csrf_token %}
-              <button type="submit" class="btn btn-link nav-link" style="display:inline; padding: 0; border: none; background: none;">Logout</button>
+              <button type="submit" class="btn btn-link nav-link" style="display:inline; padding:0; border:none; background:none;">
+                Logout
+              </button>
             </form>
           </li>
         {% else %}

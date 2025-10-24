@@ -10,6 +10,7 @@ urlpatterns = [
     path('pet/<int:pk>/delete/', views.delete_pet, name='pet_delete'),
     path('signup/', views.signup_view, name='signup'),
     path('', views.pet_list, name='pet_list'),
+    path('logout/', views.logout_view, name='logout'),
 
     # Logout view (works with POST form)
     path('accounts/logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
